@@ -37,34 +37,71 @@ language-translator/
 ├── README.md         # Documentation file (you’re reading it!)
 
 
-**🛠️ Prerequisites**
+⚙️ Installation & Quick Start
+🅰️ Option A — Frontend Only (Free / Public API)
 
-Modern browser (Chrome, Firefox, Edge)
+If you just want to test the app with a public translation endpoint:
 
-Node.js (only if you run a local backend or proxy)
+Clone or download this repository:
 
-An API key for the translation service you choose (if using a hosted API)
+git clone https://github.com/your-username/language-translator.git
 
-If you want a free option for experimenting, consider:
 
-LibreTranslate — public instances exist, or you can self-host: https://libretranslate.com
+Open the project folder:
 
-Or deploy a tiny backend proxy and store your API keys server-side.
+cd language-translator
 
-**⚙️ Installation & Quick Start**
-Option A — Frontend-only (using a public/free translation endpoint)
 
-Clone the repo or copy the files to a folder.
+Open index.html in your web browser.
 
-Edit script.js to point to the translation API endpoint you’ll use (examples below).
+Enter your text → choose languages → click Translate 🚀
 
-Open index.html in your browser.
+🅱️ Option B — Frontend + Local Proxy Server (Recommended for API keys)
 
-Option B — Frontend + Local proxy server (recommended for API keys)
+To securely use APIs that require authentication (like Google or DeepL):
 
-Put your API key in a .env file (or server environment variable).
+Create a .env file and add your API key:
 
-Run the small Node/Express proxy (example below).
+TRANSLATE_API_KEY=your_api_key_here
 
-Open index.html and the frontend will call your proxy at /api/translate.
-<img width="1083" height="655" alt="image" src="https://github.com/user-attachments/assets/100df4c3-9530-4274-964e-767ba49ee3c7" />
+
+Create a lightweight Node.js Express proxy (server.js):
+
+import express from "express";
+import fetch from "node-fetch";
+import dotenv from "dotenv";
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+
+app.post("/api/translate", async (req, res) => {
+  const { text, source = "auto", target = "en" } = req.body;
+  try {
+    const response = await fetch("https://api.example.com/translate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.TRANSLATE_API_KEY}`
+      },
+      body: JSON.stringify({ q: text, source, target })
+    });
+
+    const data = await response.json();
+    res.json({ translatedText: data.translatedText });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Translation failed" });
+  }
+});
+
+app.listen(3000, () => console.log("✅ Server running at http://localhost:3000"));
+
+
+Run the proxy:
+
+npm install express node-fetch dotenv
+node server.js
+
+
+Open index.html — it will now call your proxy endpoint (/api/translate) securely.
