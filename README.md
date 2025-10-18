@@ -10,7 +10,7 @@ This project emphasizes a **minimalistic UI**, **fast performance**, and **flexi
 ## 🚀 Demo
 
 <img width="1200" height="600" alt="Language Translator Preview" src="https://github.com/user-attachments/assets/9fd4b9d7-68e5-4162-9e52-5d29e88ea081" />
-
+<img width="1083" height="655" alt="Language Translator Interface Example" src="https://github.com/user-attachments/assets/100df4c3-9530-4274-964e-767ba49ee3c7" />
 ---
 
 ## ✨ Features
