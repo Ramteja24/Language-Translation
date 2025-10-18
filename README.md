@@ -37,7 +37,7 @@ language-translator/
 ├── README.md         # Documentation file (you’re reading it!)
 
 
-⚙️ Installation & Quick Start
+## ⚙️ Installation & Quick Start
 🅰️ Option A — Frontend Only (Free / Public API)
 
 If you just want to test the app with a public translation endpoint:
@@ -105,3 +105,38 @@ node server.js
 
 
 Open index.html — it will now call your proxy endpoint (/api/translate) securely.
+## 🖼️ User Interface
+Homepage Preview
+<img width="1083" height="655" alt="Language Translator UI" src="https://github.com/user-attachments/assets/100df4c3-9530-4274-964e-767ba49ee3c7" />
+Interface Components
+
+Input Box: Type or paste the text to translate.
+
+Language Dropdowns: Select source and target languages.
+
+Translate Button: Trigger translation request.
+
+Output Box: Displays the translated result.
+
+Copy Button: Copy the translated text to clipboard.
+
+Download Option: Save translated output as a .txt file.
+
+🧠 How It Works
+
+User enters text and selects languages.
+
+JavaScript captures the input and sends it to the translation API via fetch().
+
+The API returns the translated text.
+
+The translated text is displayed dynamically without reloading the page.
+
+🧾 Example Translation Flow
+Input Text: "Hello, how are you?"
+Source Language: English (en)
+Target Language: Spanish (es)
+
+↓ API Response ↓
+
+Translated Text: "Hola, ¿cómo estás?"
