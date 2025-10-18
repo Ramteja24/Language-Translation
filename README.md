@@ -1,11 +1,10 @@
-ChatGPT said:
-Language Translator (JavaScript)
+**Language Translator**
 
 A simple, lightweight language translation web application built with vanilla JavaScript, HTML and CSS.
 It translates text or phrases from one language to another using any translation API you choose (Google Translate API, LibreTranslate, DeepL, or a free/open-source alternative). This README shows setup, usage, and examples so you can get running quickly.
 <img width="1200" height="600" alt="image" src="https://github.com/user-attachments/assets/9fd4b9d7-68e5-4162-9e52-5d29e88ea081" />
 
-✅ Features
+**Features**
 
 Translate text/phrases between languages
 
@@ -19,7 +18,7 @@ Simple error handling and loading states
 
 Easy to swap translation provider (API-agnostic)
 
-📦 Project Structure
+**📦 Project Structure**
 language-translator/
 ├─ index.html
 ├─ style.css
@@ -27,7 +26,7 @@ language-translator/
 ├─ README.md
 └─ countries.js
 
-🛠️ Prerequisites
+**🛠️ Prerequisites**
 
 Modern browser (Chrome, Firefox, Edge)
 
@@ -41,7 +40,7 @@ LibreTranslate — public instances exist, or you can self-host: https://libretr
 
 Or deploy a tiny backend proxy and store your API keys server-side.
 
-⚙️ Installation & Quick Start
+**⚙️ Installation & Quick Start**
 Option A — Frontend-only (using a public/free translation endpoint)
 
 Clone the repo or copy the files to a folder.
