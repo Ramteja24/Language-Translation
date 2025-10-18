@@ -24,7 +24,7 @@ language-translator/
 ├─ style.css
 ├─ script.js
 ├─ README.md
-└─ countries.js
+└─ Countries.js
 
 **🛠️ Prerequisites**
 
